@@ -263,13 +263,6 @@ Sistem Pendukung Keputusan (SPK)
 
 **Sistem Pendukung Keputusan Pemilihan Tempat Magang Menggunakan Metode SAW**
 
-### Anggota Kelompok
-
-- Shafa Aura Yoga Diasa
-- Nama Anggota 2
-- Nama Anggota 3
-- Nama Anggota 4
-
 ---
 
 ## 📚 Manfaat Project
