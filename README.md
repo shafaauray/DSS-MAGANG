@@ -1,70 +1,93 @@
 # 🎓 Sistem Pendukung Keputusan Pemilihan Tempat Magang Menggunakan Metode SAW
 
+![Python](https://img.shields.io/badge/Python-3.14-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
+![Method](https://img.shields.io/badge/Method-SAW-green)
+![Status](https://img.shields.io/badge/Status-Deployed-success)
+
+---
+
 ## 📖 Deskripsi Project
 
 Sistem Pendukung Keputusan (SPK) Pemilihan Tempat Magang merupakan aplikasi berbasis web yang dirancang untuk membantu mahasiswa menentukan tempat magang terbaik berdasarkan beberapa kriteria penilaian.
 
-Pada praktiknya, mahasiswa sering dihadapkan pada banyak pilihan perusahaan magang dengan karakteristik yang berbeda-beda. Oleh karena itu, diperlukan suatu metode yang dapat membantu proses pengambilan keputusan secara objektif dan terukur.
+Dalam proses mencari tempat magang, mahasiswa sering dihadapkan pada banyak pilihan perusahaan dengan kelebihan dan kekurangan masing-masing. Oleh karena itu diperlukan sebuah sistem yang mampu membantu proses pengambilan keputusan secara objektif, cepat, dan terukur.
 
-Aplikasi ini menerapkan metode **Simple Additive Weighting (SAW)** untuk melakukan proses perankingan alternatif perusahaan berdasarkan bobot dan nilai kriteria yang diberikan oleh pengguna.
+Aplikasi ini menerapkan metode **Simple Additive Weighting (SAW)** untuk melakukan proses normalisasi, pembobotan, dan perankingan alternatif perusahaan sehingga pengguna dapat memperoleh rekomendasi tempat magang terbaik berdasarkan preferensi yang diberikan.
+
+---
+
+## 🌐 Live Demo
+
+Aplikasi dapat diakses secara online melalui:
+
+### 🔗 https://dss-magang-2nmiwypfhmev2amabhndqf.streamlit.app/
 
 ---
 
 ## 🎯 Tujuan Sistem
 
-Tujuan utama dari sistem ini adalah:
+Sistem ini dibuat untuk:
 
-- Membantu mahasiswa memilih tempat magang yang paling sesuai.
-- Mengurangi subjektivitas dalam proses pemilihan tempat magang.
-- Memberikan hasil perankingan berdasarkan metode pengambilan keputusan multikriteria.
+- Membantu mahasiswa memilih tempat magang terbaik.
+- Mengurangi subjektivitas dalam pengambilan keputusan.
+- Memberikan hasil perankingan yang objektif berdasarkan kriteria tertentu.
+- Menerapkan metode SAW pada kasus nyata pemilihan tempat magang.
 - Menyediakan visualisasi hasil perhitungan yang mudah dipahami.
 
 ---
 
-## 🧮 Metode yang Digunakan
+## 🧮 Metode Simple Additive Weighting (SAW)
 
-### Simple Additive Weighting (SAW)
+Metode SAW merupakan salah satu metode dalam Sistem Pendukung Keputusan yang digunakan untuk menentukan alternatif terbaik dari sejumlah alternatif berdasarkan beberapa kriteria.
 
-Metode SAW merupakan salah satu metode dalam Sistem Pendukung Keputusan (SPK) yang bekerja dengan cara:
+Tahapan metode SAW:
 
-1. Menentukan alternatif yang akan dibandingkan.
-2. Menentukan kriteria penilaian.
+1. Menentukan alternatif.
+2. Menentukan kriteria.
 3. Memberikan bobot pada setiap kriteria.
 4. Melakukan normalisasi matriks keputusan.
-5. Menghitung nilai preferensi setiap alternatif.
-6. Menghasilkan ranking alternatif terbaik.
+5. Menghitung nilai preferensi.
+6. Melakukan proses perankingan.
 
-### Rumus Normalisasi
+---
 
-#### Benefit Criteria
+## 📊 Rumus Normalisasi
+
+### Benefit Criteria
 
 Kriteria yang semakin besar nilainya semakin baik.
 
-\[
-R_{ij} = \frac{X_{ij}}{Max(X_{ij})}
-\]
+```text
+Rij = Xij / Max(Xij)
+```
 
-#### Cost Criteria
+### Cost Criteria
 
 Kriteria yang semakin kecil nilainya semakin baik.
 
-\[
-R_{ij} = \frac{Min(X_{ij})}{X_{ij}}
-\]
+```text
+Rij = Min(Xij) / Xij
+```
 
-### Rumus Nilai Preferensi
+---
 
-\[
-V_i = \sum_{j=1}^{n} W_j \times R_{ij}
-\]
+## 📈 Rumus Nilai Preferensi
+
+```text
+Vi = Σ(Wj × Rij)
+```
 
 Keterangan:
 
-- \(V_i\) = Nilai akhir alternatif
-- \(W_j\) = Bobot kriteria
-- \(R_{ij}\) = Nilai normalisasi
+| Simbol | Keterangan |
+|---------|---------|
+| Vi | Nilai akhir alternatif |
+| Wj | Bobot kriteria |
+| Rij | Nilai normalisasi |
+| Xij | Nilai alternatif |
 
-Alternatif dengan nilai tertinggi akan menempati peringkat pertama.
+Alternatif dengan nilai preferensi tertinggi akan menempati peringkat pertama.
 
 ---
 
@@ -83,32 +106,32 @@ Alternatif dengan nilai tertinggi akan menempati peringkat pertama.
 
 ## 🚀 Fitur Sistem
 
-### Manajemen Data Perusahaan
+### 📌 Manajemen Data Perusahaan
 
 - Menambahkan data perusahaan magang
 - Mengubah data perusahaan
 - Menghapus data perusahaan
 - Menampilkan seluruh alternatif perusahaan
 
-### Pengaturan Bobot
+### ⚖️ Pengaturan Bobot Kriteria
 
-- Mengatur bobot setiap kriteria
+- Input bobot masing-masing kriteria
 - Validasi total bobot harus 100%
 
-### Perhitungan SAW
+### 🏆 Perhitungan Metode SAW
 
 - Normalisasi otomatis
 - Perhitungan nilai preferensi
-- Perankingan alternatif secara otomatis
+- Perankingan alternatif perusahaan
 
-### Visualisasi Data
+### 📊 Visualisasi Hasil
 
 - Dashboard informasi
-- Tabel hasil ranking
-- Grafik ranking perusahaan
-- Tampilan podium 3 besar
+- Tabel ranking perusahaan
+- Grafik hasil ranking
+- Podium 3 besar perusahaan terbaik
 
-### Export Data
+### 📥 Export Data
 
 - Download hasil ranking dalam format CSV
 
@@ -116,13 +139,14 @@ Alternatif dengan nilai tertinggi akan menempati peringkat pertama.
 
 ## 🖥️ Teknologi yang Digunakan
 
-| Teknologi | Fungsi |
-|------------|---------|
+| Teknologi | Kegunaan |
+|------------|------------|
 | Python | Bahasa Pemrograman |
-| Streamlit | Framework Web App |
+| Streamlit | Framework Web Application |
 | Pandas | Pengolahan Data |
 | NumPy | Perhitungan Numerik |
-| Git & GitHub | Version Control |
+| Git | Version Control |
+| GitHub | Repository Management |
 
 ---
 
@@ -138,38 +162,46 @@ DSS-MAGANG
 └── README.md
 ```
 
-### Penjelasan File
+---
 
-#### app.py
+## 📄 Penjelasan File
 
-Berisi antarmuka aplikasi (UI) menggunakan Streamlit, meliputi:
+### app.py
+
+File utama aplikasi Streamlit yang berisi:
 
 - Dashboard
 - Input data perusahaan
 - Input bobot kriteria
+- Perhitungan ranking
 - Visualisasi hasil
-- Export data
+- Export CSV
 
-#### saw.py
+### saw.py
 
 Berisi implementasi metode SAW:
 
 - Normalisasi Benefit
 - Normalisasi Cost
 - Perhitungan skor akhir
-- Proses ranking
+- Perankingan alternatif
 
-#### requirements.txt
+### requirements.txt
 
-Daftar dependency yang diperlukan aplikasi.
+Berisi daftar library yang dibutuhkan aplikasi.
 
 ---
 
-## 🌐 Demo Aplikasi
+## 🔄 Alur Kerja Sistem
 
-Aplikasi dapat diakses secara online melalui:
-
-👉 https://dss-magang-2nmiwypfhmev2amabhndqf.streamlit.app/
+1. Pengguna memasukkan data perusahaan.
+2. Pengguna memberikan nilai setiap kriteria.
+3. Pengguna menentukan bobot kriteria.
+4. Sistem melakukan normalisasi data.
+5. Sistem menghitung nilai preferensi menggunakan metode SAW.
+6. Sistem menghasilkan ranking perusahaan.
+7. Sistem menampilkan visualisasi grafik.
+8. Pengguna dapat mengunduh hasil ranking.
 
 ---
 
@@ -195,7 +227,7 @@ python3 -m venv .venv
 
 ### Aktivasi Virtual Environment
 
-Mac/Linux
+MacOS / Linux
 
 ```bash
 source .venv/bin/activate
@@ -221,24 +253,28 @@ streamlit run app.py
 
 ---
 
-## 📊 Alur Sistem
-
-1. Pengguna memasukkan data perusahaan.
-2. Pengguna menentukan bobot kriteria.
-3. Sistem melakukan normalisasi data.
-4. Sistem menghitung nilai preferensi menggunakan metode SAW.
-5. Sistem menampilkan hasil ranking.
-6. Pengguna dapat mengunduh hasil ranking dalam format CSV.
-
----
-
 ## 👥 Kelompok 5
 
 ### Mata Kuliah
+
 Sistem Pendukung Keputusan (SPK)
 
 ### Judul Project
+
 **Sistem Pendukung Keputusan Pemilihan Tempat Magang Menggunakan Metode SAW**
+
+### Anggota Kelompok
+
+- Shafa Aura Yoga Diasa
+- Nama Anggota 2
+- Nama Anggota 3
+- Nama Anggota 4
+
+---
+
+## 📚 Manfaat Project
+
+Project ini diharapkan dapat membantu mahasiswa dalam menentukan tempat magang terbaik secara objektif berdasarkan berbagai kriteria yang relevan serta memberikan pengalaman implementasi metode Sistem Pendukung Keputusan menggunakan metode Simple Additive Weighting (SAW).
 
 ---
 
