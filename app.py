@@ -382,17 +382,7 @@ if len(st.session_state.data) > 1:
                 ["Perusahaan", "Skor"]
             ]
 
-            # PODIUM
-            st.subheader("🥇 Podium Ranking")
-
-            medal = ["🥇", "🥈", "🥉"]
-
-            top = ranking.head(3).reset_index()
-
-            for i in range(min(3, len(top))):
-                st.markdown(
-                    f"### {medal[i]} {top.loc[i,'Perusahaan']} — {top.loc[i,'Skor']:.4f}"
-                )
+            # PODIUMs
 
             st.divider()
 
